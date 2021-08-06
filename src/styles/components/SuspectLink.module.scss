@@ -1,0 +1,52 @@
+.suspectLinkContainer {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  
+  a {
+    padding: 5px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    font-weight: lighter;
+
+    color: var(--light-gray);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.suspectLinkContainer > div {
+  text-align: center;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 8px 0;
+
+    border: none;
+    border-radius: 7px;
+
+    color: var(--white);
+
+    background-color: var(--red);
+  }
+
+  small {
+    font-weight: lighter;
+
+    color: var(--light-gray);
+  }
+}

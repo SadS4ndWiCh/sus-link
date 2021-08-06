@@ -1,0 +1,74 @@
+.createLinkContainer {
+  margin-top: 50px;
+
+  form {
+    display: flex;
+
+    input {
+      position: relative;
+
+      width: 100%;
+      height: 50px;
+
+      margin-right: 15px;
+      padding: 7px 10px;
+
+      border: none;
+      border-radius: 7px;
+
+    }
+  }
+}
+
+.createLinkContainer form input {
+  &:focus {
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 5px;
+
+      background: var(--red);
+    }
+  }
+}
+
+.createLinkContainer form > div {
+  flex-shrink: 0;
+  
+  button {
+    width: 100%;
+    height: 100%;
+
+    padding: 5px 35px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: var(--red);
+
+    color: var(--white);
+
+    transition: opacity .2s;
+    
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .createLinkContainer {
+    form {
+      display: block;
+
+      button {
+        margin: 10px 0 0 0 !important;
+      }
+    }
+  }
+}

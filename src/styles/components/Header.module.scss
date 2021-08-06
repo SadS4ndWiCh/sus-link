@@ -1,0 +1,45 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  margin: 3em 0;
+
+  img {
+    width: 90px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+
+    color: var(--white);
+  
+    span {
+      color: var(--red);
+    }
+  }
+
+  p {
+    font-weight: 300;
+    text-align: center;
+
+    color: var(--light-gray);
+  }
+}
+
+@media (max-width: 425px) {
+  .headerContainer {
+    gap: 2px;
+    
+    text-align: center;
+    
+    h1 {
+      font-size: 2em;
+      line-height: 1em;
+    }
+
+    p {
+      font-size: .9em;
+    }
+  }
+}
