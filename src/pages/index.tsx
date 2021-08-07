@@ -21,14 +21,14 @@ export default function Home() {
         <meta property="og:url" content="https://suslink.vercel.app/" />
         <meta property="og:title" content="SusLink" />
         <meta property="og:description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
-        <meta property="og:image" content="suslink_image.png" />
+        <meta property="og:image" content="./suslink_image.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://suslink.vercel.app/" />
         <meta property="twitter:title" content="SusLink" />
         <meta property="twitter:description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
-        <meta property="twitter:image" content="suslink_image.png" />
+        <meta property="twitter:image" content="./suslink_image.png" />
       </Head>
 
       <div className={styles.container}>
