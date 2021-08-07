@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import { CreateLink } from '@components/CreateLink';
 import { Header } from '@components/Header';
 import { Footer } from '@components/Footer';
@@ -6,14 +8,33 @@ import styles from '@styles/pages/Home.module.scss';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Header />
+    <>
+      <Head>
+        <title>SusLink</title>
 
-      <main>
-        <CreateLink />
-      </main>
+        <meta name="title" content="SusLink" />
+        <meta name="description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
 
-      <Footer />
-    </div>
+        <meta property="og:type" content="website" />
+        {/* <meta property="og:url" content="https://metatags.io/" /> */}
+        <meta property="og:title" content="SusLink" />
+        <meta property="og:description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        {/* <meta property="twitter:url" content="https://metatags.io/" /> */}
+        <meta property="twitter:title" content="SusLink" />
+        <meta property="twitter:description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
+      </Head>
+
+      <div className={styles.container}>
+        <Header />
+
+        <main>
+          <CreateLink />
+        </main>
+
+        <Footer />
+      </div>
+    </>
   )
 }
