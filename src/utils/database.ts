@@ -8,14 +8,16 @@ interface NewUrl {
 export function dbAddNew(
   { originalUrl, suspectUrl }: NewUrl,
   isDebug?: boolean,
-  callback?: (data: any) => void, 
+  callback?: (data: any, error: any) => void, 
 ) {
   if(isDebug) {
-    callback?.([{
-      id: 55,
-      original_url: originalUrl,
-      suspect_url: suspectUrl,
-    }]);
+    setInterval(() => {
+      callback?.([{
+        id: 55,
+        original_url: originalUrl,
+        suspect_url: suspectUrl,
+      }], null);
+    }, 1500);
 
     return;
   }
@@ -26,12 +28,5 @@ export function dbAddNew(
         original_url: originalUrl,
         suspect_url: suspectUrl,
       })
-      .then(({ data, error }) => {
-        if(error) {
-          console.error(error);
-          return;
-        }
-        
-        callback?.(data);
-      })
+      .then(({ data, error }) => callback?.(data, error))
 }
