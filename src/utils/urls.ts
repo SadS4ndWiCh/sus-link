@@ -21,3 +21,9 @@ export function generateSuspectUrl() {
   return `${uid.stamp(10)}_${suspectName}`;
 
 }
+
+export function convertUrl(suspectUrl: string) {
+  const { protocol, hostname, port } = window.location;
+
+  return `${protocol}//${hostname}${port ? ':' + port : ''}/${suspectUrl}`;
+}
