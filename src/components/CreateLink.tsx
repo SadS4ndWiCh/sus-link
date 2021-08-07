@@ -31,10 +31,7 @@ export function CreateLink() {
       { originalUrl, suspectUrl },
       Boolean(process.env.NEXT_PUBLIC_IS_DEBUG),
       (data, error) => {      
-        if(error) {
-          console.error(error);
-          return;
-        }
+        if(error) return;
         
         urlInputEl.value = '';
         
