@@ -19,6 +19,7 @@ export function CreateLink() {
 
   function handleSubmit(event: any) {
     event.preventDefault();
+    
     const urlInputEl = urlInputRef.current;
 
     if(!urlInputEl.value) return;
@@ -26,14 +27,24 @@ export function CreateLink() {
     const originalUrl = urlInputEl.value;
     const suspectUrl = generateSuspectUrl();
     
-    dbAddNew({ originalUrl, suspectUrl }, Boolean(process.env.NEXT_PUBLIC_IS_DEBUG), (data) => {
-      urlInputEl.value = '';
-      
-      setUrlGenerated({
-        originalUrl,
-        suspectUrl: convertUrl(suspectUrl),
-      });
-    });
+    dbAddNew(
+      { originalUrl, suspectUrl },
+      Boolean(process.env.NEXT_PUBLIC_IS_DEBUG),
+      (data, error) => {      
+        if(error) {
+          console.error(error);
+          return;
+        }
+        
+        urlInputEl.value = '';
+        
+        setUrlGenerated({
+          originalUrl,
+          suspectUrl: convertUrl(suspectUrl),
+        });
+
+      }
+    );
   }
 
   return (
@@ -57,7 +68,9 @@ export function CreateLink() {
         />
 
         <div>
-          <button>Gerar</button>
+          <button
+            type="submit"
+          >Gerar</button>
         </div>
       </form>
 
