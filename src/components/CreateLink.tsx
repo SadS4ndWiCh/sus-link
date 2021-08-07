@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 
 import { SuspectLink } from './SuspectLink';
 
-import { generateSuspectUrl } from 'src/utils/urls';
+import { generateSuspectUrl, convertUrl } from 'src/utils/urls';
 import { dbAddNew } from 'src/utils/database';
 
 import styles from '@styles/components/CreateLink.module.scss';
@@ -16,12 +16,6 @@ export function CreateLink() {
   const [urlGenerated, setUrlGenerated] = useState<UrlGenerated | null>(null);
 
   const urlInputRef = useRef<any>(null);
-
-  function convertUrl(suspectUrl: string) {
-    const { protocol, hostname, port } = window.location;
-
-    return `${protocol}//${hostname}${port ? ':' + port : ''}/${suspectUrl}`;
-  }
 
   function handleSubmit(event: any) {
     event.preventDefault();
