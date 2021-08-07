@@ -26,7 +26,7 @@ export function CreateLink() {
     const originalUrl = urlInputEl.value;
     const suspectUrl = generateSuspectUrl();
     
-    dbAddNew({ originalUrl, suspectUrl }, true, (data) => {
+    dbAddNew({ originalUrl, suspectUrl }, false, (data) => {
       urlInputEl.value = '';
       
       setUrlGenerated({
