@@ -22,10 +22,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   if(error || (data && !(data.length > 0))) {
     return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      }
+      notFound: true
     }
   }
 
