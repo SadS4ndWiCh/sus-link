@@ -29,7 +29,7 @@ export function CreateLink() {
     
     dbAddNew(
       { originalUrl, suspectUrl },
-      Boolean(process.env.NEXT_PUBLIC_IS_DEBUG),
+      Number(process.env.NEXT_PUBLIC_IS_DEBUG),
       (data, error) => {      
         if(error) return;
         

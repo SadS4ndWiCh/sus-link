@@ -7,7 +7,7 @@ interface NewUrl {
 
 export function dbAddNew(
   { originalUrl, suspectUrl }: NewUrl,
-  isDebug?: boolean,
+  isDebug?: number,
   callback?: (data: any, error: any) => void, 
 ) {
   if(isDebug) {
