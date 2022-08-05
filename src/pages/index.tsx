@@ -1,44 +1,38 @@
-import Head from 'next/head';
+import { useIsClient } from 'usehooks-ts';
 
-import { CreateLink } from '@components/CreateLink';
+import { Seo } from '@components/Seo';
 import { Header } from '@components/Header';
+import { CreateLinkForm } from '@components/CreateLinkForm';
+import { LinksList } from '@components/LinksList';
 import { Footer } from '@components/Footer';
 
-import styles from '@styles/pages/Home.module.scss';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
+  const isClient = useIsClient();
+
+  if (!isClient) return
+
   return (
     <>
-      <Head>
-        <title>SusLink</title>
+      <Seo />
 
-        {/* Primary Meta Tags */}
-        <meta name="title" content="SusLink" />
-        <meta name="description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://suslink.vercel.app/" />
-        <meta property="og:title" content="SusLink" />
-        <meta property="og:description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
-        <meta property="og:image" content="https://suslink.vercel.app/suslink_image.png" />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://suslink.vercel.app/" />
-        <meta property="twitter:title" content="SusLink" />
-        <meta property="twitter:description" content="Não são gerados links curtos, apenas um link de aparência suspeita" />
-        <meta property="twitter:image" content="https://suslink.vercel.app/suslink_image.png" />
-      </Head>
-
-      <div className={styles.container}>
+      <div className='container flex flex-col h-screen'>
         <Header />
 
-        <main>
-          <CreateLink />
+        <h1>
+          Crie links de aparência suspeita para dar um sustinho em seu amiguinho ou apenas para ter links diferênciados
+        </h1>
+
+        <main className='flex-1 mb-6'>
+          <CreateLinkForm />
+
+          <LinksList />
         </main>
 
         <Footer />
+        <ToastContainer />
       </div>
     </>
   )
