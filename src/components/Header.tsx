@@ -1,20 +1,15 @@
 import Image from 'next/image';
 
-import SkullImage from '../../public/assets/skull.png';
+import SkullImage from '@public/assets/skull1.png';
 
-import styles from '@styles/components/Header.module.scss';
-
-export function Header() {
+export const Header = () => {
   return (
-    <header className={styles.headerContainer}>
-      <Image src={SkullImage} alt="Crânio de perigo" />
+    <header className='pt-6 pb-2'>
+      <Image src={SkullImage} alt='imagem de caveira' />
 
-      <div>
-        <h1>Gerador de <span>Links Suspeitos</span></h1>
-        <p>Não são gerados links curtos, apenas um link de aparência suspeita</p>
-      </div>
-      
-      <Image src={SkullImage} alt="Crânio de perigo" />
+      <button>
+
+      </button>
     </header>
   )
-}
+};
