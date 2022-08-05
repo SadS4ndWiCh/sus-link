@@ -1,11 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import styles from '@styles/pages/PageNotFound.module.scss';
-
 export default function PageNotFound() {
   return (
-    <div className={styles.pageNotFoundContainer}>
+    <div>
       <Head>
         <title>Suslink - Página não encontrada</title>
       </Head>
