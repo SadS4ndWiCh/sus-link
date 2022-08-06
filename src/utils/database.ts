@@ -1,32 +1,14 @@
 import { supabase } from "src/lib/supabaseConfig";
+import { ISusLink } from "@components/CreateLinkForm";
 
-interface NewUrl {
-  originalUrl: string;
-  suspectUrl: string;
-}
-
-export function dbAddNew(
-  { originalUrl, suspectUrl }: NewUrl,
-  isDebug?: number,
-  callback?: (data: any, error: any) => void, 
-) {
-  if(isDebug) {
-    setInterval(() => {
-      callback?.([{
-        id: 55,
-        original_url: originalUrl,
-        suspect_url: suspectUrl,
-      }], null);
-    }, 1500);
-
-    return;
+export const addNewLink = async (data: ISusLink, isDebug: boolean = false) => {
+  if (isDebug) {
+    return wait<ISusLink>(2000, data);
   }
 
-  supabase
-      .from('urls')
-      .insert({
-        original_url: originalUrl,
-        suspect_url: suspectUrl,
-      })
-      .then(({ data, error }) => callback?.(data, error))
+  return wait<ISusLink>(2000, data);
+};
+
+function wait<T>(ms: number, value: T) {
+  return new Promise(resolve => setTimeout(resolve, ms, value));
 }
