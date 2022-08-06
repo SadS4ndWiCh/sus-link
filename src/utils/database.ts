@@ -9,6 +9,6 @@ export const addNewLink = async (data: ISusLink, isDebug: boolean = false) => {
   return wait<ISusLink>(2000, data);
 };
 
-function wait<T>(ms: number, value: T) {
+function wait<T>(ms: number, value: T): Promise<T> {
   return new Promise(resolve => setTimeout(resolve, ms, value));
 }
